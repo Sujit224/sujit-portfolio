@@ -43,15 +43,3 @@ A high-performance, immersive portfolio landing page built for **AI & Machine Le
    npm run dev
    ```
 
-4. **Build for production**:
-   ```bash
-   npm run build
-   ```
-
-## 📄 License
-
-This project is open-source and available under the [MIT License](LICENSE).
-
----
-
-Built with ⚡ by **C Sai Sujit**
