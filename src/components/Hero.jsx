@@ -12,7 +12,7 @@ export function Hero() {
   const aiTokens = ["LLMs", "Transformers", "RAG", "GenAI", "PyTorch", "Agents", "Diffusers", "NLP"];
   
   return (
-    <section id="about" className="relative min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-24 pt-28 pb-12 overflow-hidden">
+    <section id="about" className="relative min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-24 pt-28 pb-12 overflow-hidden max-w-[1400px] mx-auto">
       {/* Removed BIG ghost text per request */}
 
       {/* Left Content Column */}
@@ -24,7 +24,7 @@ export function Hero() {
         </motion.div>
         
         <motion.h1 initial={{ opacity:0, y:40 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.8, delay:0.5 }}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-black tracking-tight leading-none mb-2 text-white whitespace-nowrap"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-7xl font-black tracking-tight leading-none mb-2 text-white whitespace-nowrap"
           style={{ textShadow:`0 0 80px ${PURPLE}44` }}>
           C Sai&nbsp;&nbsp;Sujit
         </motion.h1>

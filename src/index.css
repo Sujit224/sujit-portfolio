@@ -2,7 +2,10 @@
 @import "tailwindcss";
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { 
+  scroll-behavior: smooth; 
+  font-size: 90%;
+}
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #060608; }
 ::-webkit-scrollbar-thumb { background: #9966FF44; border-radius: 99px; }

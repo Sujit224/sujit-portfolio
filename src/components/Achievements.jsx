@@ -3,26 +3,41 @@ import { motion, useInView } from "framer-motion";
 import { SectionHead } from "./SectionHead";
 import { PURPLE, CYAN, glass } from "../data/constants";
 
+// Import Assets
+import metaCert from "../assets/MetaPytorch.jpeg";
+import googleBadge from "../assets/badge.png";
+
 export function Achievements() {
   const [metaHov, setMetaHov] = useState(false);
   const [dsaHov, setDsaHov] = useState(false);
   const [gdgHov, setGdgHov] = useState(false);
   
   const dsaRef = useRef(null);
-  const dsaInView = useInView(dsaRef, { once:true, amount:0.4 });
+  
+  const cardStyle = (isHovered, color) => ({
+    ...glass,
+    borderRadius: 20,
+    border: `1px solid ${isHovered ? color + "50" : "rgba(255,255,255,0.09)"}`,
+    boxShadow: isHovered ? `0 0 80px ${color}25, 0 30px 60px rgba(0,0,0,0.5)` : "none",
+    padding: "2rem",
+    transition: "border-color .3s, box-shadow .3s",
+    minHeight: "220px",
+    display: "flex",
+    alignItems: "center"
+  });
 
   return (
     <section id="achievements" className="relative py-24 px-6 max-w-7xl mx-auto">
       <SectionHead label="Milestones & Leadership" title="Achievements & Roles" sub="Defining the professional journey through impact and excellence" />
       
-      <div className="flex flex-col gap-12">
+      <div className="flex flex-col gap-8">
         {/* GDG ROLE */}
         <motion.div initial={{ opacity:0, y:50 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }}
           onMouseEnter={() => setGdgHov(true)} onMouseLeave={() => setGdgHov(false)}
           animate={gdgHov ? { y:-10 } : { y:[0,-4,0] }}
-          style={{ ...glass, borderRadius:20, border:`1px solid ${gdgHov?CYAN+"50":"rgba(255,255,255,0.09)"}`, boxShadow:gdgHov?`0 0 80px ${CYAN}25, 0 30px 60px rgba(0,0,0,0.5)`:"none", padding:"3rem", transition:"border-color .3s, box-shadow .3s" }}
+          style={cardStyle(gdgHov, CYAN)}
           transition={{ duration: 0.8, ...(gdgHov ? { duration: 0.3 } : { y: { duration: 3.2, repeat: Infinity, ease: "easeInOut" } }) }}>
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 w-full">
             <div className="flex items-center gap-6">
                <div className="w-20 h-20 rounded-2xl flex items-center justify-center shrink-0 bg-white/5 border border-white/10 p-4 shadow-inner">
                   <svg viewBox="0 0 24 24" className="w-full h-full">
@@ -38,8 +53,8 @@ export function Achievements() {
             <div className="space-y-6 max-w-md">
               <div className="space-y-4">
                 {[
-                  { icon:"🎤", text:'Conducted technical sessions on Generative AI and AI Agents for the developer community.' },
-                  { icon:"🏆", text:'Planned and coordinated "Ragathon 2026" — a flagship RAG-focused hackathon.' },
+                  { icon:"🎤", text:'Conducted technical sessions on Generative AI for the developer community.' },
+                  { icon:"🏆", text:'Planned and coordinated "Ragathon 2026" — a flagship RAG hackathon.' },
                 ].map((item,i) => (
                   <div key={i} className="flex items-start gap-3">
                     <span className="text-xl shrink-0 mt-0.5">{item.icon}</span>
@@ -51,7 +66,7 @@ export function Achievements() {
                 whileHover={{ scale:1.05, boxShadow:`0 0 20px ${CYAN}44` }}
                 className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold tracking-wider"
                 style={{ background:`${CYAN}15`, color:CYAN, border:`1px solid ${CYAN}33` }}>
-                <i className="fab fa-github" /> View Event Repo
+                <i className="fab fa-github" /> View Repo
               </motion.a>
             </div>
           </div>
@@ -61,9 +76,9 @@ export function Achievements() {
         <motion.div initial={{ opacity:0, y:50 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }}
           onMouseEnter={() => setMetaHov(true)} onMouseLeave={() => setMetaHov(false)}
           animate={metaHov ? { y:-10 } : { y:[0,-6,0] }}
-          style={{ ...glass, borderRadius:20, border:`1px solid ${metaHov?"#0082fb44":"rgba(255,255,255,0.09)"}`, boxShadow:metaHov?"0 0 80px #0082fb25, 0 30px 60px rgba(0,0,0,0.5)":"none", padding:"3rem", transition:"border-color .3s, box-shadow .3s" }}
+          style={cardStyle(metaHov, "#0082fb")}
           transition={{ duration: 0.8, delay:0.1, ...(metaHov ? { duration: 0.3 } : { y: { duration: 3, repeat: Infinity, ease: "easeInOut" } }) }}>
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 w-full">
             <div className="flex items-center gap-6">
               <motion.div whileHover={{ rotate:[0,-12,12,0] }} transition={{ duration:0.4 }}
                 className="w-20 h-20 rounded-2xl flex items-center justify-center shrink-0"
@@ -76,23 +91,23 @@ export function Achievements() {
                 <p className="text-sm md:text-base mt-1" style={{ color:"#0082fbaa" }}>Meta PyTorch Hackathon</p>
               </div>
             </div>
-            <div className="max-w-md">
-              <p className="text-white/55 text-sm md:text-base leading-relaxed mb-6">
-                Selected as a global finalist in the prestigious Meta PyTorch Hackathon — competing against the world's top AI developers.
-              </p>
-              <div className="flex flex-wrap items-center gap-4">
-                <motion.div animate={{ opacity:[0.6,1,0.6] }} transition={{ duration:2, repeat:Infinity }}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full font-mono text-xs font-bold"
-                  style={{ color:"#0082fb", background:"#0082fb15", border:"1px solid #0082fb33" }}>
-                  <span className="w-2 h-2 rounded-full inline-block" style={{ background:"#0082fb" }} />Global Finalist
-                </motion.div>
-                <motion.a href="https://drive.google.com/file/d/1EDe2EFFEwq7ky9LMiwzGZCZ2QNDgMSdH/view?usp=sharing" target="_blank" rel="noopener noreferrer"
+            <div className="max-w-md flex flex-col md:flex-row items-center gap-8">
+              <div className="flex-1">
+                <p className="text-white/55 text-sm md:text-base leading-relaxed mb-6">
+                  Selected as a global finalist in the prestigious Meta PyTorch Hackathon.
+                </p>
+                <motion.a href={metaCert} target="_blank" rel="noopener noreferrer"
                   whileHover={{ scale:1.04, boxShadow:"0 0 24px #0082fb44" }}
-                  className="flex items-center gap-2 px-6 py-3 rounded-xl text-xs font-bold tracking-wider"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold tracking-wider"
                   style={{ background:"#0082fb1A", color:"#0082fb", border:"1px solid #0082fb33" }}>
                   <i className="fas fa-certificate" /> View Certificate
                 </motion.a>
               </div>
+              {/* Compact Preview */}
+              <motion.a href={metaCert} target="_blank" rel="noopener noreferrer"
+                whileHover={{ scale:1.1 }} className="w-32 h-20 rounded-lg overflow-hidden border border-white/10 bg-white/5 shrink-0 shadow-2xl">
+                <img src={metaCert} className="w-full h-full object-cover" alt="Meta Certificate" />
+              </motion.a>
             </div>
           </div>
         </motion.div>
@@ -101,9 +116,9 @@ export function Achievements() {
         <motion.div ref={dsaRef} initial={{ opacity:0, y:50 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }}
           onMouseEnter={() => setDsaHov(true)} onMouseLeave={() => setDsaHov(false)}
           animate={dsaHov ? { y:-10 } : { y:[0,-5,0] }}
-          style={{ ...glass, borderRadius:20, border:`1px solid ${dsaHov?PURPLE+"50":"rgba(255,255,255,0.09)"}`, boxShadow:dsaHov?`0 0 80px ${PURPLE}25, 0 30px 60px rgba(0,0,0,0.5)`:"none", padding:"3rem", transition:"border-color .3s, box-shadow .3s" }}
+          style={cardStyle(dsaHov, PURPLE)}
           transition={{ duration: 0.8, delay: 0.2, ...(dsaHov ? { duration: 0.3 } : { y: { duration: 3.5, repeat: Infinity, ease: "easeInOut" } }) }}>
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 w-full">
             <div className="flex items-center gap-6">
               <motion.div animate={{ rotate:[0,5,-5,0] }} transition={{ duration:4, repeat:Infinity }}
                 className="w-20 h-20 rounded-2xl flex items-center justify-center shrink-0 text-4xl"
@@ -111,39 +126,30 @@ export function Achievements() {
               <div>
                 <span className="font-mono text-xs tracking-widest uppercase text-white/30 block mb-1">Problem Solving</span>
                 <h3 className="text-white font-black text-2xl md:text-3xl leading-tight">300+ Problems</h3>
-                <p className="text-sm md:text-base mt-1" style={{ color:PURPLE+"aa" }}>LeetCode & GeeksforGeeks</p>
+                <p className="text-sm md:text-base mt-1" style={{ color:PURPLE+"aa" }}>LeetCode & GFG</p>
               </div>
             </div>
-            <div className="flex-1 max-w-xl">
-              <div className="flex flex-wrap items-end gap-6 mb-8">
-                <div className="flex items-end gap-2">
-                  <motion.span className="font-black leading-none" style={{ fontSize:"4rem", color:PURPLE }}
-                    animate={{ opacity:[0.7,1,0.7] }} transition={{ duration:3, repeat:Infinity }}>300</motion.span>
-                  <span className="font-black text-3xl mb-2" style={{ color:CYAN }}>+</span>
-                  <span className="text-white/30 text-xs mb-3 font-mono uppercase tracking-widest">solved</span>
-                </div>
-                <div className="flex gap-3 flex-wrap mb-2">
-                  {["LeetCode","GeeksforGeeks"].map(p => (
-                    <span key={p} className="font-mono text-xs px-4 py-2 rounded-full" style={{ color:PURPLE+"cc", background:`${PURPLE}12`, border:`1px solid ${PURPLE}25` }}>{p}</span>
-                  ))}
-                </div>
-              </div>
-              <motion.a href="https://codolio.com/profile/SaiSujit" target="_blank" rel="noopener noreferrer"
-                whileHover={{ scale:1.05, boxShadow:`0 0 20px ${PURPLE}44` }}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold tracking-wider"
-                style={{ background:`${PURPLE}15`, color:PURPLE, border:`1px solid ${PURPLE}33` }}>
-                <i className="fas fa-external-link-alt" /> View Coding Profile
-              </motion.a>
+            <div className="max-w-md">
+               <div className="flex items-end gap-2 mb-4">
+                  <span className="font-black text-5xl" style={{ color:PURPLE }}>300+</span>
+                  <span className="text-white/30 text-xs mb-1 font-mono uppercase tracking-widest">solved</span>
+               </div>
+               <motion.a href="https://codolio.com/profile/SaiSujit" target="_blank" rel="noopener noreferrer"
+                  whileHover={{ scale:1.05, boxShadow:`0 0 20px ${PURPLE}44` }}
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold tracking-wider"
+                  style={{ background:`${PURPLE}15`, color:PURPLE, border:`1px solid ${PURPLE}33` }}>
+                  <i className="fas fa-external-link-alt" /> View Profile
+                </motion.a>
             </div>
           </div>
         </motion.div>
 
-        {/* BASKETBALL ROLE */}
+        {/* BASKETBALL */}
         <motion.div initial={{ opacity:0, y:50 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }}
-          style={{ ...glass, borderRadius:20, border:`1px solid rgba(255,255,255,0.09)`, padding:"3rem", transition:"border-color .3s, box-shadow .3s" }}
+          style={cardStyle(false, "#F59E0B")}
           whileHover={{ y:-10, border:`1px solid #F59E0B55`, boxShadow:`0 0 80px #F59E0B25, 0 30px 60px rgba(0,0,0,0.5)` }}
           transition={{ duration: 0.8 }}>
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 w-full">
             <div className="flex items-center gap-6">
                <div className="w-20 h-20 rounded-2xl flex items-center justify-center shrink-0 bg-white/5 border border-white/10 p-3 shadow-inner">
                   <span className="text-4xl text-[#F59E0B]">🏀</span>
@@ -151,12 +157,12 @@ export function Achievements() {
                <div>
                  <span className="font-mono text-xs tracking-widest uppercase text-white/30 block mb-1">Sports Leadership</span>
                  <h3 className="text-white font-black text-2xl md:text-3xl leading-tight">Basketball Lead</h3>
-                 <p className="text-sm md:text-base mt-1" style={{ color:"#F59E0Baa" }}>Eifer - The Sports Club, IIIT Lucknow</p>
+                 <p className="text-sm md:text-base mt-1" style={{ color:"#F59E0Baa" }}>Eifer Sports Club</p>
                </div>
             </div>
             <div className="max-w-md">
               <p className="text-white/60 text-sm leading-relaxed">
-                Spearheaded the basketball wing of IIIT Lucknow, organizing inter-college tournaments and fostering a competitive sports culture across the campus.
+                Spearheaded the basketball wing of IIIT Lucknow, organizing tournaments and fostering sports culture.
               </p>
             </div>
           </div>
@@ -164,10 +170,10 @@ export function Achievements() {
 
         {/* GOOGLE SOLUTION CHALLENGE */}
         <motion.div initial={{ opacity:0, y:50 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }}
-          style={{ ...glass, borderRadius:20, border:`1px solid rgba(255,255,255,0.09)`, padding:"3rem", transition:"border-color .3s, box-shadow .3s" }}
+          style={cardStyle(false, "#4285F4")}
           whileHover={{ y:-10, border:`1px solid #4285F455`, boxShadow:`0 0 80px #4285F425, 0 30px 60px rgba(0,0,0,0.5)` }}
           transition={{ duration: 0.8 }}>
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 w-full">
             <div className="flex items-center gap-6">
                <div className="w-20 h-20 rounded-2xl flex items-center justify-center shrink-0 bg-white/5 border border-white/10 p-4 shadow-inner">
                   <svg viewBox="0 0 24 24" className="w-full h-full">
@@ -180,19 +186,21 @@ export function Achievements() {
                  <p className="text-sm md:text-base mt-1" style={{ color:"#4285F4aa" }}>Google Solution Challenge</p>
                </div>
             </div>
-            <div className="max-w-md text-right md:text-left">
-              <div className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-3" 
-                style={{ background:"#EA43351A", color:"#EA4335", border:"1px solid #EA433533" }}>
-                Rapid Crisis Response
+            <div className="max-w-md flex flex-col md:flex-row items-center gap-8">
+              <div className="flex-1">
+                <div className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-3" style={{ background:"#EA43351A", color:"#EA4335", border:"1px solid #EA433533" }}>Rapid Crisis Response</div>
+                <p className="text-white/60 text-sm leading-relaxed mb-4">Led a team to engineer a tech-driven solution for emergency situations.</p>
+                <motion.a href={googleBadge} target="_blank" rel="noopener noreferrer"
+                  whileHover={{ scale:1.05, boxShadow:`0 0 20px #4285F444` }}
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold tracking-wider"
+                  style={{ background:`#4285F415`, color:"#4285F4", border:`1px solid #4285F433` }}>
+                  <i className="fas fa-award" /> View Badge
+                </motion.a>
               </div>
-              <p className="text-white/60 text-sm leading-relaxed mb-6">
-                Led a multidisciplinary team to engineer a tech-driven solution for emergency situations, focusing on minimizing response latency and optimizing resource allocation during critical events.
-              </p>
-              <motion.a href="https://drive.google.com/file/d/1Pfndmrt5LZdN6RRX9LWcEMNdMyLMv7ca/view?usp=sharing" target="_blank" rel="noopener noreferrer"
-                whileHover={{ scale:1.05, boxShadow:`0 0 20px #4285F444` }}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold tracking-wider"
-                style={{ background:`#4285F415`, color:"#4285F4", border:`1px solid #4285F433` }}>
-                <i className="fas fa-award" /> View Official Badge
+              {/* Compact Preview */}
+              <motion.a href={googleBadge} target="_blank" rel="noopener noreferrer"
+                whileHover={{ scale:1.1 }} className="w-32 h-20 rounded-lg overflow-hidden border border-white/10 bg-white/5 shrink-0 shadow-2xl">
+                <img src={googleBadge} className="w-full h-full object-cover" alt="Google Badge" />
               </motion.a>
             </div>
           </div>

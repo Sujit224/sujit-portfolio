@@ -10,11 +10,11 @@ export function ParticleField() {
     let H = (canvas.height = window.innerHeight);
     const resize = () => { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; };
     window.addEventListener("resize", resize);
-    const N = 40;
+    const N = 12;
     const pts = Array.from({ length: N }, () => ({
       x: Math.random() * W, y: Math.random() * H,
-      vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35,
-      r: Math.random() * 1.4 + 0.3, hue: Math.random() > 0.55 ? 270 : 180,
+      vx: (Math.random() - 0.5) * 0.15, vy: (Math.random() - 0.5) * 0.15,
+      r: Math.random() * 1.2 + 0.3, hue: Math.random() > 0.55 ? 270 : 180,
     }));
     let mouse = { x: -999, y: -999 };
     const onMove = (e) => { mouse.x = e.clientX; mouse.y = e.clientY; };
