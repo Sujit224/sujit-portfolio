@@ -7,7 +7,7 @@ export function Connect() {
     { icon:"fas fa-envelope", label:"saisujit300@gmail.com", href:"mailto:saisujit300@gmail.com", accent:CYAN },
     { icon:"fab fa-github", label:"GitHub", href:"https://github.com/Sujit224", accent:"#ffffff" },
     { icon:"fab fa-linkedin", label:"LinkedIn", href:"https://www.linkedin.com/in/sai-sujit-86965420a/", accent:"#0A66C2" },
-    { icon:"fas fa-code", label:"LeetCode", href:"https://leetcode.com/u/sai-sujit/", accent:"#FFA116" },
+    { icon:"fas fa-code", label:"LeetCode", href:"https://leetcode.com/u/SaiSujit/", accent:"#FFA116" },
   ];
 
   return (

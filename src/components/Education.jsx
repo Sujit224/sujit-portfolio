@@ -5,8 +5,8 @@ import { PURPLE, glass } from "../data/constants";
 
 export function Education() {
   const items = [
-    { degree:"B.Tech — Information Technology", school:"Indian Institute of Information Technology, Lucknow", score:"CGPA: 8.75", year:"2022 – 2026", icon:"🎓" },
-    { degree:"CBSE Class XII", school:"Sri Chaitanya Techno School", score:"95.8%", year:"2020 – 2022", icon:"🏫" },
+    { degree:"B.Tech — Information Technology", school:"Indian Institute of Information Technology, Lucknow", score:"CGPA: 8.75", year:"2024 – Current", icon:"🎓" },
+    { degree:"CBSE Class XII", school:"Sri Chaitanya Techno School", score:"95.8%", year:"2022 – 2024", icon:"🏫" },
   ];
   const docBtns = [
     { label:"Download Resume", icon:"fas fa-download", href:"https://drive.google.com/uc?export=download&id=16FzZGXH9WpYlrbTrFQ0ojlBU9gnl-RD3", primary:true, ext:true },

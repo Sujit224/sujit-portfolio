@@ -128,6 +128,12 @@ export function Achievements() {
                   ))}
                 </div>
               </div>
+              <motion.a href="https://codolio.com/profile/SaiSujit" target="_blank" rel="noopener noreferrer"
+                whileHover={{ scale:1.05, boxShadow:`0 0 20px ${PURPLE}44` }}
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold tracking-wider"
+                style={{ background:`${PURPLE}15`, color:PURPLE, border:`1px solid ${PURPLE}33` }}>
+                <i className="fas fa-external-link-alt" /> View Coding Profile
+              </motion.a>
             </div>
           </div>
         </motion.div>

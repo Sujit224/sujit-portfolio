@@ -26,7 +26,7 @@ export function Hero() {
         <motion.h1 initial={{ opacity:0, y:40 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.8, delay:0.5 }}
           className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-black tracking-tight leading-none mb-2 text-white whitespace-nowrap"
           style={{ textShadow:`0 0 80px ${PURPLE}44` }}>
-          C Sai Sujit
+          C Sai&nbsp;&nbsp;Sujit
         </motion.h1>
 
         <motion.h2 initial={{ opacity:0, y:40 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.8, delay:0.6 }}

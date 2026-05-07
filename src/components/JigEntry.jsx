@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { PURPLE, CYAN, DARK } from "../data/constants";
 
-const CHARS = "C SAI SUJIT".split("");
+const CHARS = "C   SAI   SUJIT".split("");
 
 export function JigEntry({ onDone }) {
   useEffect(() => {
