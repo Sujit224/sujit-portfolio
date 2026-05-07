@@ -185,9 +185,15 @@ export function Achievements() {
                 style={{ background:"#EA43351A", color:"#EA4335", border:"1px solid #EA433533" }}>
                 Rapid Crisis Response
               </div>
-              <p className="text-white/60 text-sm leading-relaxed">
+              <p className="text-white/60 text-sm leading-relaxed mb-6">
                 Led a multidisciplinary team to engineer a tech-driven solution for emergency situations, focusing on minimizing response latency and optimizing resource allocation during critical events.
               </p>
+              <motion.a href="https://drive.google.com/file/d/1Pfndmrt5LZdN6RRX9LWcEMNdMyLMv7ca/view?usp=sharing" target="_blank" rel="noopener noreferrer"
+                whileHover={{ scale:1.05, boxShadow:`0 0 20px #4285F444` }}
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold tracking-wider"
+                style={{ background:`#4285F415`, color:"#4285F4", border:`1px solid #4285F433` }}>
+                <i className="fas fa-award" /> View Official Badge
+              </motion.a>
             </div>
           </div>
         </motion.div>
