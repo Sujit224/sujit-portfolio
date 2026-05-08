@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { SectionHead } from "./SectionHead";
 import { PURPLE, CYAN, glass } from "../data/constants";
+import { Mic, Trophy, Zap, Target } from "lucide-react";
 
 // Import Assets
 import metaCert from "../assets/MetaPytorch.jpeg";
@@ -53,8 +54,8 @@ export function Achievements() {
             <div className="space-y-6 max-w-md">
               <div className="space-y-4">
                 {[
-                  { icon:"🎤", text:'Conducted technical sessions on Generative AI for the developer community.' },
-                  { icon:"🏆", text:'Planned and coordinated "Ragathon 2026" — a flagship RAG hackathon.' },
+                  { icon:<Mic size={20} color={CYAN} />, text:'Conducted technical sessions on Generative AI for the developer community.' },
+                  { icon:<Trophy size={20} color={CYAN} />, text:'Planned and coordinated "Ragathon 2026" — a flagship RAG hackathon.' },
                 ].map((item,i) => (
                   <div key={i} className="flex items-start gap-3">
                     <span className="text-xl shrink-0 mt-0.5">{item.icon}</span>
@@ -121,8 +122,8 @@ export function Achievements() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 w-full">
             <div className="flex items-center gap-6">
               <motion.div animate={{ rotate:[0,5,-5,0] }} transition={{ duration:4, repeat:Infinity }}
-                className="w-20 h-20 rounded-2xl flex items-center justify-center shrink-0 text-4xl"
-                style={{ background:`${PURPLE}1A`, border:`1px solid ${PURPLE}44` }}>⚡</motion.div>
+                className="w-20 h-20 rounded-2xl flex items-center justify-center shrink-0"
+                style={{ background:`${PURPLE}1A`, border:`1px solid ${PURPLE}44`, color: PURPLE }}><Zap size={36} /></motion.div>
               <div>
                 <span className="font-mono text-xs tracking-widest uppercase text-white/30 block mb-1">Problem Solving</span>
                 <h3 className="text-white font-black text-2xl md:text-3xl leading-tight">300+ Problems</h3>
@@ -152,7 +153,7 @@ export function Achievements() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 w-full">
             <div className="flex items-center gap-6">
                <div className="w-20 h-20 rounded-2xl flex items-center justify-center shrink-0 bg-white/5 border border-white/10 p-3 shadow-inner">
-                  <span className="text-4xl text-[#F59E0B]">🏀</span>
+                  <Target size={36} color="#F59E0B" />
                </div>
                <div>
                  <span className="font-mono text-xs tracking-widest uppercase text-white/30 block mb-1">Sports Leadership</span>
