@@ -14,6 +14,7 @@ export const techStack = [
   { name: "C++", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg", desc: "Leveraged for high-performance computing and algorithmic problem-solving." },
   { name: "FastAPI", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg", desc: "Building high-performance, asynchronous APIs with type safety." },
   { name: "TensorFlow", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg", desc: "Designing and training complex deep learning architectures." },
+  { name: "Keras", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/keras/keras-original.svg", desc: "High-level neural networks API for fast experimentation and deep learning." },
   { name: "Scikit-Learn", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg", desc: "Standard toolkit for classical machine learning and data preprocessing." },
   { name: "OpenCV", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg", desc: "Real-time computer vision processing and image analysis." },
   { name: "Firebase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg", desc: "Real-time database and backend-as-a-service for rapid development." },
@@ -43,7 +44,6 @@ export const projects = [
     accent: PURPLE, icon: <Shield size="1em" />,
     bgGrad: `radial-gradient(ellipse at top left, ${PURPLE}22 0%, transparent 60%), radial-gradient(ellipse at bottom right, ${CYAN}12 0%, transparent 60%)`,
     github: "https://github.com/Sujit224/aria-response",
-    demo: "https://aria-response-vhhz.vercel.app/",
     image: "/aria-preview.png",
   },
   {
@@ -53,6 +53,14 @@ export const projects = [
     accent: CYAN, icon: <Landmark size="1em" />,
     bgGrad: `radial-gradient(ellipse at top right, ${CYAN}22 0%, transparent 60%), radial-gradient(ellipse at bottom left, ${PURPLE}12 0%, transparent 60%)`,
     github: "https://github.com/Sujit224/SecureBank",
+  },
+  {
+    id: "alumniconnect", title: "AlumniConnect", subtitle: "AI-Powered Alumni Platform",
+    desc: "Intelligent platform connecting students with alumni, utilizing an AI Agent equipped with Text-to-SQL to dynamically query the database and deliver insightful statistics. Features an automated resume data extraction pipeline.",
+    tech: ["Python", "FastAPI", "SQLAlchemy", "MySQL", "LangChain", "LangGraph", "Groq LLM"],
+    accent: PURPLE, icon: <Network size="1em" />,
+    bgGrad: `radial-gradient(ellipse at top left, ${PURPLE}22 0%, transparent 60%), radial-gradient(ellipse at bottom right, ${CYAN}12 0%, transparent 60%)`,
+    github: "https://github.com/Sujit224/AlumniConnect",
   },
 ];
 

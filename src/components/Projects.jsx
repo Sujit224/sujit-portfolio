@@ -49,11 +49,6 @@ function ProjectCard({ project, index }) {
             style={{ background:`${project.accent}1A`, color:project.accent, border:`1px solid ${project.accent}33` }}>
             <i className="fab fa-github" /> GitHub
           </motion.a>
-          <motion.a href={project.demo || "#"} target={project.demo ? "_blank" : "_self"} rel="noopener noreferrer" whileHover={{ scale:1.05 }}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold tracking-wider flex-1 justify-center text-white"
-            style={{ background:`linear-gradient(135deg, ${project.accent}, ${project.accent}bb)`, opacity: project.demo ? 1 : 0.5, cursor: project.demo ? "pointer" : "not-allowed" }}>
-            <i className="fas fa-external-link-alt" /> Live Demo
-          </motion.a>
         </div>
       </div>
     </motion.div>
